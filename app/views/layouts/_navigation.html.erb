@@ -11,15 +11,15 @@
 
       <div class="my-2 my-md-0 mr-md-3">
           <% if !user_signed_in?%>
-            <%= link_to 'Login', new_user_session_path, class:"pr-4 pl-3 btn btn-outline-primary" %>
-            <%= link_to 'Sign up', new_user_registration_path, class:"btn btn-outline-primary" %>
+            <%= link_to 'Login', new_user_session_path, class:"pr-4 pl-3 btn btn-outline-info" %>
+            <%= link_to 'Sign up', new_user_registration_path, class:"btn btn-outline-info" %>
           <% else %>
               
               <nav class="p-0 navbar navbar-expand-sm">
                 <ul class="navbar-nav">
                   <div class="row">
                   <li class="nav-item dropdown">
-                    <button class="btn btn-outline-primary nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-outline-info nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Profile <%="Admin" if current_user.admin? %>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -29,7 +29,7 @@
                     </div>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "Logout", destroy_user_session_path, class:"p-2 ml-2 btn btn-outline-primary", method: :delete%>
+                    <%= link_to "Logout", destroy_user_session_path, class:"p-2 ml-2 btn btn-outline-info", method: :delete%>
                   </li>
                   </div>
                 </ul>

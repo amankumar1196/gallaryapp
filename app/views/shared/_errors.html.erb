@@ -1,0 +1,17 @@
+<% if obj.errors.any? %>
+    <div class="card mb-4 bgerror text-danger">
+        <div class="card-header">
+            <h5 class="card-title">
+                The following errors prevent the article from getting created:
+                <%= pluralize(obj.errors.count,"error")%>
+            </h5>
+            <div class="card-body">
+                <ul>
+                    <% obj.errors.full_messages.each do |msg|%>
+                        <li style="list-style:none"><%= msg %></li>
+                    <%end%>
+                </ul>
+            </div>
+        </div>
+    </div>
+<%end%>
