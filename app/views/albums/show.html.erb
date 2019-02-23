@@ -1,2 +1,11 @@
-<%= @album.title %>
-<%= @album.description%>
+<h2 class="text-center m-3"><%= @album.title %></h2>
+<h4 class="text-center"><i>"<%= @album.description%>"</i></h4>
+
+<div class="container text-center mt-5 mb-5 p-4 text-center border border-danger rounded-pill">
+<h5>Album Actions</h5>
+<span>
+<%= link_to "Upload Image", "#", class:"btn btn-outline-success btn-md m-2" %>
+<%= link_to "Edit Album", edit_album_path, class:"btn btn-outline-info btn-md m-2 pl-4 pr-4" %>
+<%= link_to "Delete Album", album_path(@album), class:"btn btn-outline-danger btn-md m-2", method: :delete, data: {confirm: "Are you sure? "} %>
+</span>
+</div>

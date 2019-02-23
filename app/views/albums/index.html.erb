@@ -1,3 +1,20 @@
-<h2>Here all albums will come</h2>
-
-<%= link_to "Create New Album", new_album_path, class:"btn btn-success"%>
+<div class="container text-center mt-5 mb-5">
+<h2>Album Collection</h2>
+</div>
+<div class="container">
+<% @albums.each do |album| %>
+    <% if album.visible? %>
+        <div class="float-left p-3">
+            <div class="card text-center border-secondary" style="width:245px ; height:200px">
+                <div class="card-title pt-4">
+                    <%=link_to album.title, album_path(album)%>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <%=album.description%>
+                </div>
+            </div>
+        </div>
+    <%end%>
+<%end%>
+</div>

@@ -1,2 +1,21 @@
-<h2 class="text-center"> Welcome <%= @user.username %></h2>
-<h4 class="text-center"><%= @user.username %>'s albums </h4>
+<div class="container text-center">
+    <span class="dashhead ml-3"> Welcome <%= @user.username %></span>
+    <%= link_to "Create New Album", new_album_path, class:"btn btn-success float-right mr-3"%>
+</div>
+
+<hr>
+<div class="container">
+    <% @user.albums.each do |album| %>
+        <div class="float-left p-3">
+            <div class="card text-center border-secondary" style="width:245px ; height:200px">
+                <div class="card-title pt-4">
+                    <%=link_to album.title, album_path(album)%>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <%=album.description%>
+                </div>
+            </div>
+        </div>
+    <%end%>
+</div>
