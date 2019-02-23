@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_02_23_063402) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.boolean "visible", default: false
+    t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
   create_table "user_categories", force: :cascade do |t|

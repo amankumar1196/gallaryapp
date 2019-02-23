@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
-#Delete this before action after the completion of album functionality
     skip_before_action :authenticate_user!
-
+    before_action :set_album, only: [:edit, :update, :destroy]
+    #before_action :require_same_user, only: [:edit, :update, :show, :destroy]
     def index
         @albums = Album.all
     end
@@ -22,11 +22,9 @@ class AlbumsController < ApplicationController
     end
 
     def edit
-        @album = Album.find(params[:id])
     end
 
     def update
-        @album = Album.find(params[:id])
         if @album.update(album_params)
             flash[:success] = "Album was successfully updated"
             redirect_to album_path(@album)
@@ -36,18 +34,26 @@ class AlbumsController < ApplicationController
     end
 
     def show
-        @album = Album.find(params[:id])
+        if(current_user !=@album.user)
+            redirect_to root_path
+        end
     end
     
     def destroy
-        @album = Album.find(params[:id])
         @album.destroy
         flash[:danger] = "Album was Successfully Deleted"
         redirect_to albums_path
     end
 
     private
+
+    def set_album
+        @album = Album.find(params[:id])
+    end
+
     def album_params
         params.require(:album).permit(:title, :description, :visible)
     end
+
+
 end

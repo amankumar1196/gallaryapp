@@ -12,8 +12,6 @@
   <body>
     <%= render 'layouts/navigation'%>
     <%= yield %>
-    <div class="container fixed-bottom">
-    <%= debug(params) if Rails.env.development? %>
-    </div>
+ 
   </body>
 </html>
