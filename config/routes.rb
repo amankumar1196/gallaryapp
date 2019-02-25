@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
 
-  resources :albums
+  resources :albums do 
+    resources :posts
+  end
 
 end

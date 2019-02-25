@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
     skip_before_action :authenticate_user!
-    before_action :set_album, only: [:edit, :update, :destroy]
+    before_action :set_album, only: [:show, :edit, :update, :destroy]
     #before_action :require_same_user, only: [:edit, :update, :show, :destroy]
     def index
         @albums = Album.all
@@ -34,9 +34,6 @@ class AlbumsController < ApplicationController
     end
 
     def show
-        if(current_user !=@album.user)
-            redirect_to root_path
-        end
     end
     
     def destroy

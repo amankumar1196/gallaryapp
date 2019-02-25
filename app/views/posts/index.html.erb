@@ -1,0 +1,17 @@
+<div class="container">
+    <% @album.each do |album| %>
+        <% album.posts.each do |post| %>
+            <div class="float-left p-3">
+                <div class="card text-center border-secondary" style="width:245px ; height:200px">
+                    <div class="card-title pt-4">
+                        <%=post.title%>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <%=image_tag post.file, class:"imagesize"%>
+                    </div>
+                </div>
+            </div>
+        <%end%>
+    <%end%>
+</div>

@@ -1,0 +1,14 @@
+<div class="card text-center border-secondary" style="width:245px ; height:200px">
+    <div class="card-title pt-4">
+        <%= @post.title %>
+    </div>
+    <hr>
+    <div class="card-body">
+        <%= image_tag @post.file, class:"imagesize" %>
+    </div>
+    <hr>
+    <div class="text-center">
+        <%=link_to 'View', @post.file %> | 
+        <%=link_to 'Download', @post.file, download: ''%>
+    </div>
+</div>
