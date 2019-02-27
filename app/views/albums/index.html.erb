@@ -5,13 +5,19 @@
 <% @albums.each do |album| %>
     <% if album.visible? %>
         <div class="float-left p-3">
-            <div class="card text-center border-secondary" style="width:245px ; height:200px">
-                <div class="card-title pt-4">
+            <div class="card text-center border-secondary" style="width:245px ; height:180px">
+                <div class="card-title p-2 border border-bottom-5 bor">
                     <%=link_to album.title, album_path(album)%>
                 </div>
-                <hr>
+                
                 <div class="card-body">
                     <%=album.description%>
+                    <br/>
+                    <small class="text-danger">Tags :
+                        <% for tag in album.tags%>
+                            <%=link_to tag.name, tag_path(tag) %>
+                        <%end%>
+                    </small>
                 </div>
             </div>
         </div>

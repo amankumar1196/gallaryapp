@@ -1,0 +1,18 @@
+<h2 class="text-center"> ALL TAGS </h2>
+<br/>
+<div class="text-center">
+    <% @tags.each do |tag| %>
+    <div class="row">
+        <div class="col-md-4 offset-4 pt-3">
+            <div class="card bg-light">
+                <div class="card-title">
+                    <%= link_to "#{tag.name}", tag_path(tag) %>     
+                </div>
+                <small class="text-center">
+                    <p>( <%= pluralize(tag.albums.count, "Album") %> )</p>
+                </small>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>

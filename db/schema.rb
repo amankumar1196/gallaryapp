@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_083547) do
+ActiveRecord::Schema.define(version: 2019_02_26_101000) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,11 @@ ActiveRecord::Schema.define(version: 2019_02_25_083547) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "album_tags", force: :cascade do |t|
+    t.integer "album_id"
+    t.integer "tag_id"
+  end
+
   create_table "albums", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -49,6 +54,12 @@ ActiveRecord::Schema.define(version: 2019_02_25_083547) do
     t.datetime "updated_at", null: false
     t.integer "album_id"
     t.index ["album_id"], name: "index_posts_on_album_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_categories", force: :cascade do |t|

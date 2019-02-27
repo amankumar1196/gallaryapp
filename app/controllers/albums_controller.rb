@@ -8,6 +8,7 @@ class AlbumsController < ApplicationController
 
     def new
         @album = Album.new
+    #    3.times {@album.tags.build}
     end
 
     def create
@@ -39,7 +40,7 @@ class AlbumsController < ApplicationController
     def destroy
         @album.destroy
         flash[:danger] = "Album was Successfully Deleted"
-        redirect_to albums_path
+        redirect_to user_path(current_user)
     end
 
     private

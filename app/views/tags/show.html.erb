@@ -1,15 +1,15 @@
-<div class="container text-center">
-    <span class="dashhead ml-3"> Welcome <%= @user.username %></span>
-    <%= link_to "Create New Album", new_album_path, class:"btn btn-success float-right mr-1"%>
-    <%= link_to "Create Tag", new_tag_path, class:"btn btn-success float-right mr-3"%>
-</div>
-
-<hr>
+<% if signed_in? %>
+    <div class="container text-center">
+        <span class="dashhead ml-3"> TAG : <%= @tag.name %></span>
+        <%= link_to "Edit Category Name", edit_tag_path(@tag), class:"btn btn-info float-right mr-1"%>
+    </div>
+<% end %>
+<br/>
 <div class="container">
-    <% @user.albums.each do |album| %>
+    <% @tag_albums.each do |album| %>
         <div class="float-left p-3">
             <div class="card text-center border-secondary" style="width:245px ; height:200px">
-                <div class="card-title border border-bottom-4 p-2">
+                <div class="card-title border border-bottom-3 p-2">
                     <%=link_to album.title, album_path(album)%>
                 </div>
                 <div class="card-body">

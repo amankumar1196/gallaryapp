@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resources :users, only: [:index, :show]
-
+  resources :tags
   resources :albums do 
     resources :posts
   end
 
+ 
 end
