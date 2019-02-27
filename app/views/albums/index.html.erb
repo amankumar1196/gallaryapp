@@ -1,5 +1,11 @@
-<div class="container text-center mt-5 mb-5">
-<h2>Album Collection</h2>
+<div class="container text-center mt-3 mb-5">
+<h2>Album Collections</h2>
+<%= search_form_for @search do |s|%>
+    <div class="row mt-3">
+        <%=s.search_field :title_cont, class:"col-lg-5 offset-3 mr-2"%>
+        <%=s.submit "Search", class:"btn btn-outline-info btn-sm"%> 
+    </div>
+<%end%>
 </div>
 <div class="container">
 <% @albums.each do |album| %>

@@ -3,12 +3,12 @@ class AlbumsController < ApplicationController
     before_action :set_album, only: [:show, :edit, :update, :destroy]
     #before_action :require_same_user, only: [:edit, :update, :show, :destroy]
     def index
-        @albums = Album.all
+        @search = Album.ransack(params[:q])
+        @albums = @search.result
     end
 
     def new
         @album = Album.new
-    #    3.times {@album.tags.build}
     end
 
     def create
