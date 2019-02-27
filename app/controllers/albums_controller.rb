@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
     #before_action :require_same_user, only: [:edit, :update, :show, :destroy]
     def index
         @search = Album.ransack(params[:q])
-        @albums = @search.result
+        @albums = @search.result.page(params[:page])
     end
 
     def new

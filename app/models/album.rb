@@ -1,4 +1,5 @@
 class Album < ActiveRecord::Base
+    paginates_per 6
     belongs_to :user
     has_many :posts
     has_many :album_tags

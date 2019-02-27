@@ -4,25 +4,5 @@
     <%= link_to "Create New Album", new_album_path, class:"btn btn-success float-right mr-1"%>
     <%= link_to "Create Tag", new_tag_path, class:"btn btn-success float-right mr-3"%>
 </div>
-
 <hr>
-<div class="container">
-    <% @user.albums.each do |album| %>
-        <div class="float-left p-3">
-            <div class="card text-center border-secondary" style="width:245px ; height:200px">
-                <div class="card-title border border-bottom-4 p-2">
-                    <%=link_to album.title, album_path(album)%>
-                </div>
-                <div class="card-body">
-                    <%=album.description%>
-                    <br/>
-                    <small class="text-danger">Tags :
-                        <% for tag in album.tags%>
-                            <%=link_to tag.name, tag_path(tag) %>
-                        <%end%>
-                    </small>
-                </div>
-            </div>
-        </div>
-    <%end%>
-</div>
+<%= render 'albums/indexer', obj:@user.albums %>

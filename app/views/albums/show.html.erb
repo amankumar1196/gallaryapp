@@ -23,15 +23,12 @@
                 </div>
                     <%=image_tag post.file, class:"imagesize img-thumbnail rounded"%>
                 <div class="text-center">
-                    <%=link_to 'View', post.file %> | 
-                    <%=link_to 'Download', post.file, download: ''%>
                     <%if current_user == @album.user%>
-                       | <%=link_to 'Delete', [post.album, post], method: :delete, data: {confirm: "Are you sure?"}%>
+                       <%=link_to 'Delete', [post.album, post], method: :delete, data: {confirm: "Are you sure?"}%>
                     <%end%>
                 </div>
             </div>
         </div>
     <%end%>
 </div>
-
 

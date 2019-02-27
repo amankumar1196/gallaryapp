@@ -1,17 +1,19 @@
+<div class="offset-5 mt-5">    
+    <%= paginate @posts, window: 3%>
+</div>
 <div class="container">
-    <% @album.each do |album| %>
-        <% album.posts.each do |post| %>
-            <div class="float-left p-3">
-                <div class="card text-center border-secondary" style="width:245px ; height:200px">
-                    <div class="card-title pt-4">
-                        <%=post.title%>
-                    </div>
-                    <hr>
-                    <div class="card-body">
-                        <%=image_tag post.file, class:"imagesize"%>
-                    </div>
+    <% @posts.each do |post| %>
+        <div class="float-left pl-3">
+            <div class="card text-center border-light bg-light" style="width:245px ; height:300px">
+                <div class="card-title pt-2">
+                    <%=post.title%>
+                </div>
+                <%=image_tag post.file, class:"imagesize img-thumbnail rounded"%>
+                <div class="text-center">
+                    <%=link_to 'View', post.file %> | 
+                    <%=link_to 'Download', post.file, download: ''%>                    
                 </div>
             </div>
-        <%end%>
+        </div>
     <%end%>
 </div>

@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
 
     def index
-        @search = Post.ransack(params[:q])
-        @posts = @searchxs.result
+        @posts = Post.where("album_id = ?",params[:album_id]).page(params[:page])
     end
+
     def new
         @album = Album.find(params[:album_id])
         @post = @album.posts.new
