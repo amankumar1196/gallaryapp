@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        
-        <%= f.submit "UPDATE ALBUM", class:"mt-3 btn btn btn-outline-success"%>
+        <%=link_to "CANCEL", user_path(current_user),class:"mt-3 btn btn btn-outline-danger mr-2" %>
+        <%= f.submit(@album.new_record? ? "CREATE ALBUM" : "UPDATE ALBUM", class:"mt-3 btn btn btn-outline-success")%>
     <%end%>
 </div>

@@ -7,13 +7,29 @@
         </div>
     <%end%>
 </div>
-
-<% for album in @albums do %>
-    <% if album.visible? %>
-        <%= render 'indexer', obj:@albums %>
+<div class="container">
+    <% for album in @albums do %>
+        <% if album.visible? %>
+            <div class="float-left p-3">
+                <div class="card text-center border-secondary" style="width:245px ; height:200px">
+                    <div class="card-title border border-bottom-4 p-2">
+                        <%=link_to album.title, album_posts_path(album,@posts), class:"text-info"%>
+                    </div>
+                    <div class="card-body">
+                        <%=album.description%>
+                        <br/>
+                        <small>Tags :
+                            <% for tag in album.tags%>
+                                <%=link_to tag.name, tag_path(tag) %>
+                            <%end%>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        <%end%>
     <%end%>
-<%end%>
+</div>
 <div class="container fixed-bottom mb-4 offset-5">
-    <%= paginate @albums, window: 3%>
+    <%= paginate @albums, window: 2%>
 </div>
 

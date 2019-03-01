@@ -1,8 +1,6 @@
 
 <div class="container text-center">
     <span class="dashhead ml-3"> Welcome <%= @user.username %></span>
-    <%= link_to "Create New Album", new_album_path, class:"btn btn-success float-right mr-1"%>
-    <%= link_to "Create Tag", new_tag_path, class:"btn btn-success float-right mr-3"%>
 </div>
 <hr>
 <%= render 'albums/indexer', obj:@user.albums %>

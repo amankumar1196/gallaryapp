@@ -1,50 +1,22 @@
-<% if obj == @albums %>
-    <div class="container">
-        <% obj.each do |album| %>
-            <% if album.visible? %>
-                <div class="float-left p-3">
-                    <div class="card text-center border-secondary" style="width:245px ; height:250px">
-                        <div class="card-title border border-bottom-4 p-2">
-                            <%=link_to album.title, album_posts_path(album,@posts)%>
-                        </div>
-                        <div class="card-body">
-                            <%=album.description%>
-                            <br/>
-                            <small>Tags :
-                                <% for tag in album.tags%>
-                                    <%=link_to tag.name, tag_path(tag) %>
-                                <%end%>
-                            </small>
-                            <%= link_to "Upload Image", new_album_post_path(album), class:"btn btn-outline-success btn-md m-2" %>
-                            <%= link_to "Album Actions", album_path(album), class:"btn btn-outline-danger btn-md" %>
-                        </div>
-                    </div>
+<div class="container">
+    <% obj.each do |album| %>
+        <div class="float-left p-3">
+            <div class="card text-center border-secondary" style="width:245px ; height:250px">
+                <div class="card-title border border-bottom-4 p-2">
+                    <%=link_to album.title, album_posts_path(album,@posts)%>
                 </div>
-            <%end%>
-        <%end%>
-    </div>
-<%else%>
-    <div class="container">
-        <% obj.each do |album| %>
-            <div class="float-left p-3">
-                <div class="card text-center border-secondary" style="width:245px ; height:250px">
-                    <div class="card-title border border-bottom-4 p-2">
-                        <%=link_to album.title, album_posts_path(album,@posts)%>
-                    </div>
-                    <div class="card-body">
-                        <%=album.description%>
-                        <br/>
-                        <small>Tags :
-                            <% for tag in album.tags%>
-                                <%=link_to tag.name, tag_path(tag) %>
-                            <%end%>
-                        </small>
-                        <%= link_to "Upload Image", new_album_post_path(album), class:"btn btn-outline-success btn-md m-2" %>
-                        <%= link_to "Album Actions", album_path(album), class:"btn btn-outline-danger btn-md" %>
-                    </div>
+                <div class="card-body">
+                    <%=album.description%>
+                    <br/>
+                    <small>Tags :
+                    	<% for tag in album.tags%>
+                            <%=link_to tag.name, tag_path(tag) %>
+                        <%end%>
+                    </small>
+                    <%= link_to "Upload Image", new_album_post_path(album), class:"btn btn-outline-success btn-md m-2" %>
+                    <%= link_to "Album Actions", album_path(album), class:"btn btn-outline-danger btn-md" %>
                 </div>
             </div>
-        <%end%>
-    </div>
-<%end%>
-
+        </div>
+    <%end%>
+</div>

@@ -1,1 +1,18 @@
-<h1> Worldwide collection of Photos</h1>
+<section class="cid-qvbxSVITWJ mbr-fullscreen mbr-parallax-background" id="header2-93" data-rv-view="8647">
+    <div class="container align-center">
+        <div class="row justify-content-md-center">
+            <div class="mbr-white col-md-10">
+                <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1 mt-5"> Worldwide collection of Photos</h1>
+                
+                <p class="mbr-text pb-3 mbr-fonts-style display-5">
+                    Oneplus gallary is a free platform for your albums, modern style - mobile optimized, and fully responsive.  Suitable for every type of small photograher, portfolio. Great as a starting point for your custom albums. 
+                </p>
+                <div>
+                <% if !signed_in?%>
+                    <%=link_to 'LOGIN', new_user_session_path, class:"btn btn-outline-success btn-md"%>
+                <%end%>
+                    <%=link_to 'LEARN MORE',"#", class:"btn btn-md btn-white-outline display-4"%></div>
+            </div>
+        </div>
+    </div>
+</section>

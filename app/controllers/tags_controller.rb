@@ -12,7 +12,7 @@ class TagsController < ApplicationController
         @tag =Tag.new(tag_params)
         if @tag.save
             flash[:success] = "Category was successfully created"
-            redirect_to tags_path
+            redirect_to tag_path(@tag)
         else
             render 'new'
         end
@@ -32,6 +32,11 @@ class TagsController < ApplicationController
         end
     end
 
+    def destroy 
+        @tag = Tag.find(params[:id])
+        @tag.destroy
+        redirect_to tags_path
+    end
 
     def show
         @tag = Tag.find(params[:id])

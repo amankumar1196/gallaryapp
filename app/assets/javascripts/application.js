@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
+//= require select2
 //= require_tree .

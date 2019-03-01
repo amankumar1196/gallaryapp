@@ -11,6 +11,9 @@
                 <small class="text-center">
                     <p>( <%= pluralize(tag.albums.count, "Album") %> )</p>
                 </small>
+                <small>
+                    <%= link_to "Delete Tag", tag_path(tag), class:"btn btn-outline-danger btn-sm mb-2", method: :delete, data: { confirm: "Are you sure?" }%>
+                </small>
             </div>
         </div>
     </div>

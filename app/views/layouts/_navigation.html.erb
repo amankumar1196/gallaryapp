@@ -4,9 +4,14 @@
     <nav class="my-2 my-md-0 mr-md-3">
       <%= link_to 'Home', root_path, class:'p-2 text-dark'%>
       <%= link_to 'Albums', albums_path, class:"p-2 text-dark" %>
-      <%= link_to 'Photographers', users_path, class:"p-2 text-dark" %>
-      <a class="p-2 text-dark" href="#">Features</a>
-      <a class="p-2 text-dark" href="#">Support</a>
+      <% if signed_in? and current_user.admin? %>  
+          <%=link_to 'Tags', tags_path, class:"p-2 text-dark"%>
+          <%= link_to 'Users', users_path, class:"p-2 text-dark" %>
+      <%end%>
+      <%if signed_in?%>
+        <%= link_to "New Album", new_album_path, class:"text-dark p-2"%>
+        <%= link_to "New Tag", new_tag_path, class:"text-dark p-2 mr-2"%>
+      <%end%>
               
     </nav>
 
@@ -25,7 +30,6 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <%=link_to 'Dashboard', user_path(current_user), class:"dropdown-item"%>
-                      <%=link_to 'Your Tags', tags_path, class:"dropdown-item"%>
                       <%=link_to 'Edit Profile', edit_user_registration_path, class:"dropdown-item"%>
                       <%=link_to 'Sign out', destroy_user_session_path, class:"dropdown-item", method: :delete%>
                     </div>

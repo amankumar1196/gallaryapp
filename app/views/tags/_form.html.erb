@@ -1,3 +1,16 @@
+<head>
+  <script>
+    $(document).ready(function() { 
+        $("#e1").select2({
+            placeholder: 'Select the albums on which tag will attached',
+            allowClear: true,
+            width: 540
+        }); 
+    });
+  </script>
+</head>
+
+<body>
 <div class="mt-4 container text-center">
     <%= render 'shared/errors', obj: @tag%>
         <%= form_for @tag do |t| %>
@@ -8,20 +21,20 @@
                 <div class="col-lg-6">
                 <%= t.text_field :name, class:"form-control", placeholder:"Enter tag name", autofocus: true %>
                 </div>
-            </div>
-                
+            </div>                
+
             <div class="form-group row">
                 <div class="control-label col-lg-3">
                     <%= t.label :Albums %>
                 </div>
                 <div class="col-lg-6">
-                    <%= t.collection_check_boxes :album_ids, current_user.albums, :id, :title do |cb| %>
-                        <% cb.label(class: "checkbox-inline input-checkbox mr-3") {cb.check_box(class: "checkbox mr-1") + cb.text} %>
-                    <%end%>
+                    <%= t.select(:album_ids, current_user.albums.collect {|p| [ p.title, p.id ] }, {}, multiple: true, id:"e1")%>
                 </div>
             </div>
-  
-            <%= link_to 'CANCEL', tags_path, class:'btn btn-danger btn-md mr-3'%>
-            <%= t.submit(@tag.new_record? ? "SUBMIT" : "UPDTAE", class:'btn btn-success btn-md')%>
+            <divclass="">
+                <%= link_to 'CANCEL', user_path(current_user),class:"btn btn btn-outline-danger mr-2"%>
+                <%= t.submit(@tag.new_record? ? "SUBMIT" : "UPDTAE", class:'btn btn-outline-success btn-md')%>
+            </div>
         <% end %>
 </div>
+</body>
