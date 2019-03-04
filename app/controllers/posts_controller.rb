@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+    skip_before_action :authenticate_user!, only: [:index]
+
     def index
         @posts = Post.where("album_id = ?",params[:album_id]).page(params[:page])
     end
